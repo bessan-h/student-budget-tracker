@@ -7,3 +7,10 @@
 - Sanchi Shah
 ## Project Description
 A mobile application designed to help college students manage their finances by tracking expenses, income, budgets, and spending habits.
+## Features
+- User Login
+- Budget Management
+- Expense Tracking
+- Income Tracking
+- Spending Reports
+- Data Visualization
