@@ -14,3 +14,7 @@ A mobile application designed to help college students manage their finances by 
 - Income Tracking
 - Spending Reports
 - Data Visualization
+## Repository Structure
+/docs
+/src
+/database
