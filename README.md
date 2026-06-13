@@ -5,3 +5,5 @@
 - Thelonious Brown
 - Mrunali Tumuluri
 - Sanchi Shah
+## Project Description
+A mobile application designed to help college students manage their finances by tracking expenses, income, budgets, and spending habits.
