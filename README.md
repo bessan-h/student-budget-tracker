@@ -14,4 +14,11 @@ A mobile application designed to help college students manage their finances by 
 - Income Tracking
 - Spending Reports
 - Data Visualization
-
+  
+student-budget-tracker/
+│
+├── README.md
+├── docs/
+├── database/
+├── src/
+└── .gitignore
