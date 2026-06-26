@@ -1,5 +1,5 @@
 
 import streamlit as st
 import pandas as pd
-
-st.title("Analysis Page")
+import globalstuff as gs
+st.title("Analysis")
