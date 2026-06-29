@@ -11,7 +11,7 @@ expenses = float(gs.monthexpenses)
 remaining = budget - (expenses * -1)
 percent_spent = 0.0
 if budget > 0:
-    percent_spent = min(100.0, max(0.0, round(expenses / budget * 100.0, 1)))
+    percent_spent = min(100.0, max(0.0, round((-1*expenses) / budget * 100.0, 1)))
 
 col1, col2, col3 = st.columns(3)
 col1.metric("Total Budget", f"${budget:,.2f}")
@@ -34,8 +34,4 @@ else:
     st.success("Nice work — you still have room left in your budget.")
 
 st.write("---")
-st.markdown(
-    "Use the Budget Overview page to monitor your monthly plan and make smarter spending decisions. "
-    "Add transactions in other pages to keep this summary up to date."
-)
 
