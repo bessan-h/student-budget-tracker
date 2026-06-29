@@ -15,3 +15,4 @@ A mobile application designed to help college students manage their finances by 
 - Spending Reports
 - Data Visualization
   
+Run with streamlit run pages.py
