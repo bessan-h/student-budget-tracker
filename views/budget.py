@@ -8,14 +8,14 @@ st.markdown("#### Your current budget snapshot")
 
 budget = float(gs.monthbudget)
 expenses = float(gs.monthexpenses)
-remaining = budget - expenses
+remaining = budget - (expenses * -1)
 percent_spent = 0.0
 if budget > 0:
     percent_spent = min(100.0, max(0.0, round(expenses / budget * 100.0, 1)))
 
 col1, col2, col3 = st.columns(3)
 col1.metric("Total Budget", f"${budget:,.2f}")
-col2.metric("Total Expenses", f"${expenses:,.2f}")
+col2.metric("Total Expenses", f"${(expenses*-1):,.2f}")
 col3.metric("Remaining Balance", f"${remaining:,.2f}")
 
 st.divider()
