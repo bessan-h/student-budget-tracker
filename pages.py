@@ -1,4 +1,5 @@
 import streamlit as st
+import globalstuff as gs
 
 #--Pages--
 dashboard_page = st.Page(

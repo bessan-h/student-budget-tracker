@@ -95,11 +95,6 @@ try:
             title=f"Running Balance Over Time ({st.session_state.view} Window)"
         )
         st.altair_chart(balance_chart, use_container_width=True)
-
-        if gs.monthexpenses > 0:
-            st.subheader("Expense Breakdown")
-            st.pyplot(gs.expensepiechart)
-        else:
-            st.write("No expenses to analyze yet.")
+        gs.loadbudgetdata()
 except FileNotFoundError:
     st.warning("No transaction history found.")
