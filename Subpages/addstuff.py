@@ -2,6 +2,7 @@
 import streamlit as st
 import pandas as pd
 import globalstuff as gs
+import datetime as dt
 def add_expense():
     with st.form("expense_form"):
         expense_type = st.selectbox("Expense Category", ["Food", "Rent", "Books", "Entertainment"])
@@ -17,6 +18,7 @@ def add_expense():
                 gs.entertainment += amountexp
             gs.monthexpenses += amountexp
             st.success(f"Added ${amountexp} to {expense_type}!")
+            gs.savetransactiontocsv((amountexp*-1), expense_type)
             gs.cycle()
 
 def add_income():
@@ -25,4 +27,5 @@ def add_income():
         if st.form_submit_button("Add Income"):
             gs.monthbudget += amountinc
             st.success(f"Added ${amountinc} to income!")
+            gs.savetransactiontocsv(amountinc, "Income")
             gs.cycle()
