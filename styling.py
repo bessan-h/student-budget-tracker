@@ -216,6 +216,23 @@ def apply_custom_styling():
             margin: 2rem 0;
         }
         
+        /* Sidebar - Dark mode text styling */
+        .stSidebar {
+            color: #ffffff;
+        }
+        
+        .stSidebar [data-testid="stMarkdownContainer"] {
+            color: #ffffff;
+        }
+        
+        .stSidebar p, .stSidebar label, .stSidebar span {
+            color: #f0f0f0 !important;
+        }
+        
+        .stSidebar button {
+            color: #ffffff;
+        }
+        
         /* Columns */
         .stColumns {
             gap: 1.5rem;
