@@ -216,12 +216,6 @@ def apply_custom_styling():
             margin: 2rem 0;
         }
         
-        /* Sidebar */
-        .stSidebar {
-            background: white;
-            border-right: 1px solid #e5e7eb;
-        }
-        
         /* Columns */
         .stColumns {
             gap: 1.5rem;
