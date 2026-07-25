@@ -156,13 +156,18 @@ def apply_custom_styling():
             border-radius: 8px !important;
             padding: 0.75rem !important;
             font-size: 0.95rem !important;
+            white-space: normal !important;
+            overflow: visible !important;
         }
         
-        .stTextInput > div > div > input:focus,
-        .stNumberInput > div > div > input:focus,
-        .stSelectbox > div > div > div:focus {
-            border-color: #6366f1 !important;
-            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1) !important;
+        .stSelectbox {
+            min-width: 100% !important;
+            width: 100% !important;
+        }
+        
+        .stSelectbox div {
+            white-space: normal !important;
+            overflow: visible !important;
         }
         
         /* Progress Bar */

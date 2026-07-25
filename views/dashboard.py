@@ -1,9 +1,6 @@
 import streamlit as st
 import pandas as pd
 import globalstuff as gs
-from Subpages.addstuff import add_expense, add_income
-import sys
-sys.path.insert(0, '..')
 from styling import apply_custom_styling, section_divider
 
 apply_custom_styling()
@@ -30,4 +27,5 @@ with col2:
     add_income()
 
 st.markdown("---")
+
 
