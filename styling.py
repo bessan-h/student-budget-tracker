@@ -91,6 +91,11 @@ def apply_custom_styling():
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
             border-left: 4px solid #6366f1;
             transition: all 0.3s ease;
+            color: #000000 !important;
+        }}
+        
+        .metric-card * {{
+            color: #000000 !important;
         }}
         
         .metric-card:hover {{
@@ -203,6 +208,11 @@ def apply_custom_styling():
             border-left: 4px solid #10b981;
             border-radius: 8px;
             padding: 1rem;
+            color: #ffffff !important;
+        }}
+        
+        .stSuccess p {{
+            color: #ffffff !important;
         }}
         
         .stError {{
@@ -210,6 +220,11 @@ def apply_custom_styling():
             border-left: 4px solid #ef4444;
             border-radius: 8px;
             padding: 1rem;
+            color: #ffffff !important;
+        }}
+        
+        .stError p {{
+            color: #ffffff !important;
         }}
         
         .stWarning {{
@@ -217,6 +232,11 @@ def apply_custom_styling():
             border-left: 4px solid #f59e0b;
             border-radius: 8px;
             padding: 1rem;
+            color: #000000 !important;
+        }}
+        
+        .stWarning p {{
+            color: #000000 !important;
         }}
         
         .stInfo {{
@@ -224,6 +244,11 @@ def apply_custom_styling():
             border-left: 4px solid #3b82f6;
             border-radius: 8px;
             padding: 1rem;
+            color: #ffffff !important;
+        }}
+        
+        .stInfo p {{
+            color: #ffffff !important;
         }}
         
         /* Dividers */
@@ -310,7 +335,7 @@ def render_metric_card(label, value, icon="", style="primary"):
     ">
         <div style="
             font-size: 0.875rem;
-            color: #ffffff;
+            color: #000000;
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -321,7 +346,7 @@ def render_metric_card(label, value, icon="", style="primary"):
         <div style="
             font-size: 2rem;
             font-weight: 700;
-            color: #1f2937;
+            color: #000000;
         ">
             {value}
         </div>
