@@ -1,5 +1,9 @@
 import streamlit as st
 import globalstuff as gs
+from styling import apply_custom_styling
+
+# Apply styling to the entire app
+apply_custom_styling()
 
 #--Pages--
 dashboard_page = st.Page(
