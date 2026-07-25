@@ -158,6 +158,9 @@ def apply_custom_styling():
             font-size: 0.95rem !important;
             white-space: normal !important;
             overflow: visible !important;
+            display: flex !important;
+            align-items: center !important;
+            min-height: 44px !important;
         }
         
         .stSelectbox {
@@ -168,6 +171,10 @@ def apply_custom_styling():
         .stSelectbox div {
             white-space: normal !important;
             overflow: visible !important;
+        }
+        
+        .stSelectbox [role="listbox"] {
+            vertical-align: middle !important;
         }
         
         /* Progress Bar */
