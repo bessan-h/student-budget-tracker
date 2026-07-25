@@ -179,7 +179,7 @@ def display_contrast_checker():
         for name, color in colors.items():
             ratio = get_contrast_ratio(color, "#ffffff")
             status = "✅" if ratio >= 4.5 else "⚠️"
-            st.write(f"{status} {name}: **{ratio:.2f}:1**")
+            st.markdown(f"{status} **{name}**: {ratio:.2f}:1", unsafe_allow_html=True)
 
 
 def check_page_contrast():

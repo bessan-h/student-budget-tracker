@@ -112,7 +112,7 @@ def apply_custom_styling():
         
         .metric-label {{
             font-size: 0.875rem;
-            color: #6b7280;
+            color: #ffffff;
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -253,6 +253,35 @@ def apply_custom_styling():
         .stColumns {{
             gap: 1.5rem;
         }}
+        
+        /* Contrast Checker Styling */
+        .stExpander {{
+            color: #ffffff !important;
+        }}
+        
+        .stExpander label {{
+            color: #ffffff !important;
+        }}
+        
+        .stExpander p {{
+            color: #ffffff !important;
+        }}
+        
+        .stExpander [data-testid="stMarkdownContainer"] {{
+            color: #ffffff !important;
+        }}
+        
+        .stExpander h3 {{
+            color: #ffffff !important;
+        }}
+        
+        .stExpander h4 {{
+            color: #ffffff !important;
+        }}
+        
+        .stExpander strong {{
+            color: #ffffff !important;
+        }}
     </style>
     """
     
@@ -281,7 +310,7 @@ def render_metric_card(label, value, icon="", style="primary"):
     ">
         <div style="
             font-size: 0.875rem;
-            color: #6b7280;
+            color: #ffffff;
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 0.5px;
