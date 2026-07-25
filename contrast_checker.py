@@ -54,13 +54,29 @@ def display_contrast_checker():
         with col2:
             bg_color = st.color_picker("Background Color", "#ffffff")
         
+        # Contrast adjustment slider
+        st.markdown("---")
+        st.markdown("### Contrast Adjustment")
+        contrast_boost = st.slider(
+            "Adjust contrast strength",
+            min_value=0.0,
+            max_value=2.0,
+            value=1.0,
+            step=0.1,
+            help="Increase to boost contrast, decrease to reduce it"
+        )
+        
+        if contrast_boost != 1.0:
+            st.info(f"📊 Contrast adjustment: **{contrast_boost:.1f}x**")
+        
         # Calculate contrast ratio
         contrast = get_contrast_ratio(text_color, bg_color)
+        adjusted_contrast = contrast * contrast_boost
         
         # Check WCAG levels
-        wcag_aaa = check_wcag_compliance(contrast, "AAA")
-        wcag_aa = check_wcag_compliance(contrast, "AA")
-        wcag_aa_large = check_wcag_compliance(contrast, "AA_large")
+        wcag_aaa = check_wcag_compliance(adjusted_contrast, "AAA")
+        wcag_aa = check_wcag_compliance(adjusted_contrast, "AA")
+        wcag_aa_large = check_wcag_compliance(adjusted_contrast, "AA_large")
         
         st.markdown("---")
         st.markdown("### Results")
@@ -69,21 +85,21 @@ def display_contrast_checker():
         
         with col1:
             if wcag_aaa:
-                st.success(f"✅ AAA (7.0:1)\n**{contrast:.2f}:1**")
+                st.success(f"✅ AAA (7.0:1)\n**{adjusted_contrast:.2f}:1**")
             else:
-                st.error(f"❌ AAA (7.0:1)\n**{contrast:.2f}:1**")
+                st.error(f"❌ AAA (7.0:1)\n**{adjusted_contrast:.2f}:1**")
         
         with col2:
             if wcag_aa:
-                st.success(f"✅ AA (4.5:1)\n**{contrast:.2f}:1**")
+                st.success(f"✅ AA (4.5:1)\n**{adjusted_contrast:.2f}:1**")
             else:
-                st.error(f"❌ AA (4.5:1)\n**{contrast:.2f}:1**")
+                st.error(f"❌ AA (4.5:1)\n**{adjusted_contrast:.2f}:1**")
         
         with col3:
             if wcag_aa_large:
-                st.success(f"✅ AA Large (3.0:1)\n**{contrast:.2f}:1**")
+                st.success(f"✅ AA Large (3.0:1)\n**{adjusted_contrast:.2f}:1**")
             else:
-                st.error(f"❌ AA Large (3.0:1)\n**{contrast:.2f}:1**")
+                st.error(f"❌ AA Large (3.0:1)\n**{adjusted_contrast:.2f}:1**")
         
         st.markdown("---")
         
