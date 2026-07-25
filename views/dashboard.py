@@ -18,15 +18,21 @@ st.markdown("---")
 section_divider("Quick Actions")
 st.markdown("**Add a new transaction below:**")
 
-col1, col2 = st.columns(2)
-with col1:
-    st.markdown("### 📤 Add Expense")
-    add_expense()
+# Center the forms with margin columns
+margin_col1, form_col, margin_col2 = st.columns([0.5, 2, 0.5])
+
+with form_col:
+    col1, col2 = st.columns(2, gap="medium")
     
-with col2:
-    st.markdown("### 📥 Add Income")
-    add_income()
+    with col1:
+        st.markdown("### 📤 Add Expense")
+        add_expense()
+        
+    with col2:
+        st.markdown("### 📥 Add Income")
+        add_income()
 
 st.markdown("---")
+
 
 
