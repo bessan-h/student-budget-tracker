@@ -9,10 +9,14 @@ def apply_custom_styling():
         initial_sidebar_state="expanded",
     )
     
-    custom_css = """
+    # Initialize contrast multiplier if not set
+    if "contrast_multiplier" not in st.session_state:
+        st.session_state.contrast_multiplier = 1.0
+    
+    custom_css = f"""
     <style>
         /* Color Scheme */
-        :root {
+        :root {{
             --primary: #6366f1;
             --secondary: #8b5cf6;
             --success: #10b981;
@@ -20,23 +24,28 @@ def apply_custom_styling():
             --danger: #ef4444;
             --dark: #1f2937;
             --light: #f9fafb;
-        }
+        }}
         
         /* Global Styles */
-        * {
+        * {{
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+        }}
         
-        body {
+        body {{
             background-color: #f3f4f6;
             color: #1f2937;
-        }
+        }}
+        
+        /* Apply contrast filter to main content */
+        .main {{
+            filter: contrast({st.session_state.contrast_multiplier});
+        }}
         
         /* Main Content */
-        .main {
+        .main {{
             padding: 2rem;
             background-color: #f3f4f6;
-        }
+        }}
         
         /* Typography */
         h1 {

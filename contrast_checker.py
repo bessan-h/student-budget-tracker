@@ -1,6 +1,23 @@
 import streamlit as st
 from colorsys import rgb_to_hls
 
+def apply_contrast_filter():
+    """Apply contrast adjustment filter to the entire page."""
+    if "contrast_multiplier" not in st.session_state:
+        st.session_state.contrast_multiplier = 1.0
+    
+    multiplier = st.session_state.contrast_multiplier
+    
+    if multiplier != 1.0:
+        contrast_css = f"""
+        <style>
+            .main {{
+                filter: contrast({multiplier});
+            }}
+        </style>
+        """
+        st.markdown(contrast_css, unsafe_allow_html=True)
+
 def hex_to_rgb(hex_color):
     """Convert hex color to RGB tuple."""
     hex_color = hex_color.lstrip('#')
@@ -63,11 +80,15 @@ def display_contrast_checker():
             max_value=2.0,
             value=1.0,
             step=0.1,
-            help="Increase to boost contrast, decrease to reduce it"
+            help="Increase to boost contrast, decrease to reduce it",
+            key="contrast_slider"
         )
         
+        # Store in session state to apply to page
+        st.session_state.contrast_multiplier = contrast_boost
+        
         if contrast_boost != 1.0:
-            st.info(f"📊 Contrast adjustment: **{contrast_boost:.1f}x**")
+            st.info(f"📊 Page contrast adjusted: **{contrast_boost:.1f}x** (this affects all elements on the page)")
         
         # Calculate contrast ratio
         contrast = get_contrast_ratio(text_color, bg_color)
