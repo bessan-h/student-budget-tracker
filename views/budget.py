@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import globalstuff as gs
 from styling import apply_custom_styling, render_metric_card, section_divider
+from contrast_checker import display_contrast_checker, check_page_contrast
 
 apply_custom_styling()
 
@@ -56,4 +57,11 @@ elif remaining == 0:
     st.warning(f"🟡 **Fully Allocated** — Your budget is fully allocated. Keep an eye on new expenses.")
 else:
     st.success(f"🟢 **On Track** — You still have **${remaining:,.2f}** left in your budget. Nice work!")
+
+st.markdown("---")
+
+# Add contrast checkers
+display_contrast_checker()
+check_page_contrast()
+
 

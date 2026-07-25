@@ -3,6 +3,7 @@ import streamlit as st
 import pandas as pd
 import globalstuff as gs
 from styling import apply_custom_styling, render_metric_card, section_divider
+from contrast_checker import display_contrast_checker, check_page_contrast
 
 apply_custom_styling()
 
@@ -130,3 +131,9 @@ try:
         
 except FileNotFoundError:
     st.warning("📭 No transaction history found. Start tracking your budget in the Dashboard!")
+
+st.markdown("---")
+
+# Add contrast checkers
+display_contrast_checker()
+check_page_contrast()

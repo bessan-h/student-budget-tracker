@@ -3,6 +3,7 @@ import pandas as pd
 import globalstuff as gs
 from styling import apply_custom_styling, section_divider
 from Subpages.addstuff import add_expense, add_income
+from contrast_checker import display_contrast_checker, check_page_contrast
 
 apply_custom_styling()
 gs.loadbudgetdata()
@@ -28,6 +29,11 @@ with col2:
     add_income()
 
 st.markdown("---")
+
+# Add contrast checkers
+display_contrast_checker()
+check_page_contrast()
+
 
 
 

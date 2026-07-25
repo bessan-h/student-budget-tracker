@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import globalstuff as gs
 from styling import apply_custom_styling, section_divider
+from contrast_checker import display_contrast_checker, check_page_contrast
 
 apply_custom_styling()
 
@@ -52,4 +53,11 @@ st.markdown("""
 - **Export Data**: You can download the CSV file directly from your file system
 - **Date Format**: All timestamps are recorded in YYYY-MM-DD HH:MM:SS format
 """)
+
+st.markdown("---")
+
+# Add contrast checkers
+display_contrast_checker()
+check_page_contrast()
+
 
