@@ -13,6 +13,8 @@ def apply_custom_styling():
     if "contrast_multiplier" not in st.session_state:
         st.session_state.contrast_multiplier = 1.0
     
+    contrast_value = st.session_state.contrast_multiplier
+    
     custom_css = f"""
     <style>
         /* Color Scheme */
@@ -38,25 +40,21 @@ def apply_custom_styling():
         
         /* Apply contrast filter to main content */
         .main {{
-            filter: contrast({st.session_state.contrast_multiplier});
-        }}
-        
-        /* Main Content */
-        .main {{
+            filter: contrast({contrast_value});
             padding: 2rem;
             background-color: #f3f4f6;
         }}
         
         /* Typography */
-        h1 {
+        h1 {{
             color: #1f2937;
             font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
             letter-spacing: -0.5px;
-        }
+        }}
         
-        h2 {
+        h2 {{
             color: #1f2937;
             font-size: 1.875rem;
             font-weight: 600;
@@ -64,30 +62,30 @@ def apply_custom_styling():
             margin-bottom: 1rem;
             border-bottom: 3px solid #6366f1;
             padding-bottom: 0.5rem;
-        }
+        }}
         
-        h3 {
+        h3 {{
             color: #374151;
             font-size: 1.25rem;
             font-weight: 600;
             margin-top: 1rem;
             margin-bottom: 0.75rem;
-        }
+        }}
         
-        p {
+        p {{
             line-height: 1.6;
             color: #4b5563;
-        }
+        }}
         
         /* Metrics Container */
-        .metric-container {
+        .metric-container {{
             display: flex;
             gap: 1.5rem;
             margin-bottom: 2rem;
             flex-wrap: wrap;
-        }
+        }}
         
-        .metric-card {
+        .metric-card {{
             flex: 1;
             min-width: 250px;
             background: white;
@@ -96,51 +94,51 @@ def apply_custom_styling():
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
             border-left: 4px solid #6366f1;
             transition: all 0.3s ease;
-        }
+        }}
         
-        .metric-card:hover {
+        .metric-card:hover {{
             box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15);
             transform: translateY(-2px);
-        }
+        }}
         
-        .metric-card.success {
+        .metric-card.success {{
             border-left-color: #10b981;
-        }
+        }}
         
-        .metric-card.warning {
+        .metric-card.warning {{
             border-left-color: #f59e0b;
-        }
+        }}
         
-        .metric-card.danger {
+        .metric-card.danger {{
             border-left-color: #ef4444;
-        }
+        }}
         
-        .metric-label {
+        .metric-label {{
             font-size: 0.875rem;
             color: #6b7280;
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             margin-bottom: 0.5rem;
-        }
+        }}
         
-        .metric-value {
+        .metric-value {{
             font-size: 2rem;
             font-weight: 700;
             color: #1f2937;
-        }
+        }}
         
         /* Cards */
-        .stContainer {
+        .stContainer {{
             background: white;
             border-radius: 12px;
             padding: 1.5rem;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
             margin-bottom: 1.5rem;
-        }
+        }}
         
         /* Buttons */
-        .stButton > button {
+        .stButton > button {{
             background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
             color: white;
             border: none;
@@ -150,17 +148,17 @@ def apply_custom_styling():
             font-size: 0.95rem;
             transition: all 0.3s ease;
             box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
-        }
+        }}
         
-        .stButton > button:hover {
+        .stButton > button:hover {{
             box-shadow: 0 4px 16px rgba(99, 102, 241, 0.4);
             transform: translateY(-2px);
-        }
+        }}
         
         /* Inputs */
         .stTextInput > div > div > input,
         .stNumberInput > div > div > input,
-        .stSelectbox > div > div > div {
+        .stSelectbox > div > div > div {{
             border: 2px solid #e5e7eb !important;
             border-radius: 8px !important;
             padding: 0.75rem !important;
@@ -170,94 +168,94 @@ def apply_custom_styling():
             display: flex !important;
             align-items: center !important;
             min-height: 44px !important;
-        }
+        }}
         
-        .stSelectbox {
+        .stSelectbox {{
             min-width: 100% !important;
             width: 100% !important;
-        }
+        }}
         
-        .stSelectbox div {
+        .stSelectbox div {{
             white-space: normal !important;
             overflow: visible !important;
-        }
+        }}
         
-        .stSelectbox [role="listbox"] {
+        .stSelectbox [role="listbox"] {{
             vertical-align: middle !important;
-        }
+        }}
         
         /* Progress Bar */
-        .stProgress > div > div > div > div {
+        .stProgress > div > div > div > div {{
             background: linear-gradient(90deg, #6366f1, #8b5cf6) !important;
             border-radius: 10px !important;
-        }
+        }}
         
         /* Dataframe */
-        .stDataFrame {
+        .stDataFrame {{
             border-radius: 8px !important;
             overflow: hidden !important;
-        }
+        }}
         
-        .stDataFrame tbody tr:hover {
+        .stDataFrame tbody tr:hover {{
             background-color: #f3f4f6 !important;
-        }
+        }}
         
         /* Messages */
-        .stSuccess {
+        .stSuccess {{
             background-color: #d1fae5;
             border-left: 4px solid #10b981;
             border-radius: 8px;
             padding: 1rem;
-        }
+        }}
         
-        .stError {
+        .stError {{
             background-color: #fee2e2;
             border-left: 4px solid #ef4444;
             border-radius: 8px;
             padding: 1rem;
-        }
+        }}
         
-        .stWarning {
+        .stWarning {{
             background-color: #fef3c7;
             border-left: 4px solid #f59e0b;
             border-radius: 8px;
             padding: 1rem;
-        }
+        }}
         
-        .stInfo {
+        .stInfo {{
             background-color: #dbeafe;
             border-left: 4px solid #3b82f6;
             border-radius: 8px;
             padding: 1rem;
-        }
+        }}
         
         /* Dividers */
-        .stMarkdown hr {
+        .stMarkdown hr {{
             border-color: #e5e7eb;
             margin: 2rem 0;
-        }
+        }}
         
         /* Sidebar - Dark mode text styling */
-        .stSidebar {
+        .stSidebar {{
             color: #ffffff;
-        }
+        }}
         
-        .stSidebar [data-testid="stMarkdownContainer"] {
+        .stSidebar [data-testid="stMarkdownContainer"] {{
             color: #ffffff;
-        }
+        }}
         
-        .stSidebar p, .stSidebar label, .stSidebar span {
+        .stSidebar p, .stSidebar label, .stSidebar span {{
             color: #f0f0f0 !important;
-        }
+        }}
         
-        .stSidebar button {
+        .stSidebar button {{
             color: #ffffff;
-        }
+        }}
         
         /* Columns */
-        .stColumns {
+        .stColumns {{
             gap: 1.5rem;
-        }
+        }}
     </style>
     """
     
