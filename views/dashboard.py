@@ -3,9 +3,10 @@ import pandas as pd
 import globalstuff as gs
 from styling import apply_custom_styling, section_divider
 from Subpages.addstuff import add_expense, add_income
-from contrast_checker import display_contrast_checker, check_page_contrast
+from contrast_checker import display_contrast_checker, check_page_contrast, apply_current_contrast
 
 apply_custom_styling()
+apply_current_contrast()
 gs.loadbudgetdata()
 
 col1, col2 = st.columns([2, 1])

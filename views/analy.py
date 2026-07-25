@@ -3,9 +3,10 @@ import streamlit as st
 import pandas as pd
 import globalstuff as gs
 from styling import apply_custom_styling, render_metric_card, section_divider
-from contrast_checker import display_contrast_checker, check_page_contrast
+from contrast_checker import display_contrast_checker, check_page_contrast, apply_current_contrast
 
 apply_custom_styling()
+apply_current_contrast()
 
 st.title("📈 Financial Analysis")
 st.markdown("**Deep dive into your spending patterns and trends**")

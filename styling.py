@@ -13,8 +13,6 @@ def apply_custom_styling():
     if "contrast_multiplier" not in st.session_state:
         st.session_state.contrast_multiplier = 1.0
     
-    contrast_value = st.session_state.contrast_multiplier
-    
     custom_css = f"""
     <style>
         /* Color Scheme */
@@ -38,9 +36,8 @@ def apply_custom_styling():
             color: #1f2937;
         }}
         
-        /* Apply contrast filter to main content */
+        /* Main Content */
         .main {{
-            filter: contrast({contrast_value});
             padding: 2rem;
             background-color: #f3f4f6;
         }}

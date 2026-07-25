@@ -1,6 +1,24 @@
 import streamlit as st
 from colorsys import rgb_to_hls
 
+def apply_current_contrast():
+    """Apply the current contrast filter from session state."""
+    if "contrast_multiplier" not in st.session_state:
+        st.session_state.contrast_multiplier = 1.0
+    
+    contrast = st.session_state.contrast_multiplier
+    
+    if contrast != 1.0:
+        contrast_css = f"""
+        <style>
+            .main {{
+                filter: contrast({contrast}) !important;
+            }}
+        </style>
+        """
+        st.markdown(contrast_css, unsafe_allow_html=True)
+
+
 def apply_contrast_filter():
     """Apply contrast adjustment filter to the entire page."""
     if "contrast_multiplier" not in st.session_state:
@@ -86,6 +104,17 @@ def display_contrast_checker():
         
         # Store in session state to apply to page
         st.session_state.contrast_multiplier = contrast_boost
+        
+        # Apply contrast filter dynamically
+        if contrast_boost != 1.0:
+            contrast_css = f"""
+            <style>
+                .main {{
+                    filter: contrast({contrast_boost}) !important;
+                }}
+            </style>
+            """
+            st.markdown(contrast_css, unsafe_allow_html=True)
         
         if contrast_boost != 1.0:
             st.info(f"📊 Page contrast adjusted: **{contrast_boost:.1f}x** (this affects all elements on the page)")
