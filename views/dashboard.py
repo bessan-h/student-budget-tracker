@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import globalstuff as gs
 from styling import apply_custom_styling, section_divider
+from Subpages.addstuff import add_expense, add_income
 
 apply_custom_styling()
 gs.loadbudgetdata()
